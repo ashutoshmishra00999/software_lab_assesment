@@ -1,0 +1,15 @@
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        fetch('/chatgpt', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_input: userInput })
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('response').innerText = data;
+        });
+    }
+    </script>
+    
